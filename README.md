@@ -24,7 +24,7 @@ func main() {
 	ctx := context.Background()
 	wr, _ := writer.NewWriter(ctx, "stdout://")
 	
-	for _, path := range flag.Args() {
+	for _, feature_path := range flag.Args() {
 	
 		fh, _ := os.Open(feature_path)
 		f, _ := feature.LoadWOFFeatureFromReader(fh)
@@ -51,7 +51,7 @@ func main() {
 	ctx := context.Background()
 	wr, _ := writer.NewWriter(ctx, "stdout://")
 	
-	for _, path := range flag.Args() {
+	for _, feature_path := range flag.Args() {
 	
 		fh, _ := os.Open(feature_path)
 		body, _ := ioutil.ReadAll(fh)
