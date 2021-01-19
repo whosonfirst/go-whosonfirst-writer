@@ -1,37 +1,35 @@
 package options
 
 import (
-	"github.com/aaronland/go-artisanal-integers"
-	brooklyn_integers "github.com/aaronland/go-brooklynintegers-api"
-	"github.com/whosonfirst/go-whosonfirst-export/uid"
+	"context"
+	"github.com/whosonfirst/go-whosonfirst-id"
 )
 
 type DefaultOptions struct {
 	Options
-	uid_provider uid.Provider
+	id_provider id.Provider
 }
 
 func NewDefaultOptions() (Options, error) {
 
-	bi_client := brooklyn_integers.NewAPIClient()
-	return NewDefaultOptionsWithArtisanalIntegerClient(bi_client)
-}
-
-func NewDefaultOptionsWithArtisanalIntegerClient(client artisanalinteger.Client) (Options, error) {
-
-	provider, err := uid.NewArtisanalUIDProvider(client)
+	provider, err := id.NewProvider(context.Background())
 
 	if err != nil {
 		return nil, err
 	}
 
+	return NewDefaultOptionsWithProvider(provider)
+}
+
+func NewDefaultOptionsWithProvider(provider id.Provider) (Options, error) {
+
 	opts := DefaultOptions{
-		uid_provider: provider,
+		id_provider: provider,
 	}
 
 	return &opts, nil
 }
 
-func (o *DefaultOptions) UIDProvider() uid.Provider {
-	return o.uid_provider
+func (opts *DefaultOptions) IDProvider() id.Provider {
+	return opts.id_provider
 }

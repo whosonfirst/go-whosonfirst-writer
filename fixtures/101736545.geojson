@@ -4,7 +4,7 @@
   "properties": {
     "date:inception_lower":"1642-05-17",
     "date:inception_upper":"1642-05-17",
-    "edtf:cessation":"uuuu",
+    "edtf:cessation":"..",
     "edtf:inception":"1642-05-17",
     "geom:area":0.042348,
     "geom:area_square_m":366812249.283765,
