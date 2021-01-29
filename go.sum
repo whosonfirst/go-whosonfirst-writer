@@ -92,6 +92,8 @@ github.com/whosonfirst/go-whosonfirst-export v0.1.1 h1:N2eXZH4rH3zDWBSIwYsFy1ROK
 github.com/whosonfirst/go-whosonfirst-export v0.1.1/go.mod h1:WUei94AxfPppqom4s7Y3VVTV2o6NsGjdpCaR+zyD89s=
 github.com/whosonfirst/go-whosonfirst-export v0.3.6 h1:KsbYGXTm9pgdO2tv9sAdfJFNSOpLr/IrTOSDS7+FF/4=
 github.com/whosonfirst/go-whosonfirst-export v0.3.6/go.mod h1:XmkUCwpzlHNUWURdOeWcDrDQlWmdNe09lIvVIzrpYCI=
+github.com/whosonfirst/go-whosonfirst-export v0.3.7 h1:+0nDg+eb0YUvjltK5Yu0/JPjWCQshGHspfev0lAMUP4=
+github.com/whosonfirst/go-whosonfirst-export v0.3.7/go.mod h1:XmkUCwpzlHNUWURdOeWcDrDQlWmdNe09lIvVIzrpYCI=
 github.com/whosonfirst/go-whosonfirst-flags v0.1.0 h1:llb2wtsI2y+gHZCmWaamMCx4YDRE8ZXQRRYqC7qB4so=
 github.com/whosonfirst/go-whosonfirst-flags v0.1.0/go.mod h1:bovMiQphaVhqemXFmNVf9Ts0tqnWtzHRFMUSKX+zTE8=
 github.com/whosonfirst/go-whosonfirst-format v0.3.0 h1:PEhduZdcTBYynvIQPARBTkEQ8csJnipLgILq/F98o/0=
