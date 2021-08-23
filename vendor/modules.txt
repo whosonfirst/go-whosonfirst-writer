@@ -14,6 +14,8 @@ github.com/aaronland/go-string/random
 github.com/aaronland/go-uid
 # github.com/aaronland/go-uid-artisanal v0.0.0-20191128230022-67bc446aa49d
 github.com/aaronland/go-uid-artisanal
+# github.com/g8rswimmer/error-chain v1.0.0
+github.com/g8rswimmer/error-chain
 # github.com/hashicorp/errwrap v0.0.0-20141028054710-7554cd9344ce
 github.com/hashicorp/errwrap
 # github.com/hashicorp/go-multierror v0.0.0-20171204182908-b7773ae21874
@@ -24,7 +26,7 @@ github.com/mmcloughlin/geohash
 github.com/natefinch/atomic
 # github.com/paulmach/go.geojson v1.4.0
 github.com/paulmach/go.geojson
-# github.com/paulmach/orb v0.2.1
+# github.com/paulmach/orb v0.2.2
 github.com/paulmach/orb
 github.com/paulmach/orb/geojson
 github.com/paulmach/orb/internal/length
@@ -41,23 +43,23 @@ github.com/sfomuseum/go-edtf/re
 github.com/sfomuseum/go-edtf/tests
 # github.com/skelterjohn/geom v0.0.0-20180103142417-96f3e8a219c5
 github.com/skelterjohn/geom
-# github.com/tidwall/gjson v1.7.5
+# github.com/tidwall/gjson v1.8.1
 ## explicit
 github.com/tidwall/gjson
 # github.com/tidwall/match v1.0.3
 github.com/tidwall/match
-# github.com/tidwall/pretty v1.1.0
+# github.com/tidwall/pretty v1.2.0
 github.com/tidwall/pretty
-# github.com/tidwall/sjson v1.1.6
+# github.com/tidwall/sjson v1.1.7
 github.com/tidwall/sjson
-# github.com/whosonfirst/go-whosonfirst-export/v2 v2.3.0
+# github.com/whosonfirst/go-whosonfirst-export/v2 v2.3.4
 ## explicit
 github.com/whosonfirst/go-whosonfirst-export/v2
 github.com/whosonfirst/go-whosonfirst-export/v2/properties
 # github.com/whosonfirst/go-whosonfirst-flags v0.4.2
 github.com/whosonfirst/go-whosonfirst-flags
 github.com/whosonfirst/go-whosonfirst-flags/existential
-# github.com/whosonfirst/go-whosonfirst-format v0.3.0
+# github.com/whosonfirst/go-whosonfirst-format v0.3.3
 github.com/whosonfirst/go-whosonfirst-format
 # github.com/whosonfirst/go-whosonfirst-geojson-v2 v0.16.3
 ## explicit
@@ -81,10 +83,10 @@ github.com/whosonfirst/go-whosonfirst-sources
 github.com/whosonfirst/go-whosonfirst-sources/sources
 # github.com/whosonfirst/go-whosonfirst-spr/v2 v2.0.0
 github.com/whosonfirst/go-whosonfirst-spr/v2
-# github.com/whosonfirst/go-whosonfirst-uri v0.2.0
+# github.com/whosonfirst/go-whosonfirst-uri v1.1.0
 ## explicit
 github.com/whosonfirst/go-whosonfirst-uri
-# github.com/whosonfirst/go-writer v0.4.1
+# github.com/whosonfirst/go-writer v0.5.0
 ## explicit
 github.com/whosonfirst/go-writer
 # github.com/whosonfirst/warning v0.1.1
