@@ -2,9 +2,9 @@ package writer
 
 import (
 	"context"
-	"github.com/whosonfirst/go-whosonfirst-geojson-v2/feature"
+	"github.com/paulmach/orb/geojson"
 	go_writer "github.com/whosonfirst/go-writer"
-	"io/ioutil"
+	"io"
 	"os"
 	"path/filepath"
 	"testing"
@@ -25,10 +25,22 @@ func TestWriteFeature(t *testing.T) {
 
 	fh, err := os.Open(feature_path)
 
-	f, err := feature.LoadWOFFeatureFromReader(fh)
+	if err != nil {
+		t.Fatalf("Failed to open %s, %v", feature_path, err)
+	}
+
+	defer fh.Close()
+
+	body, err := io.ReadAll(fh)
 
 	if err != nil {
-		t.Fatal(err)
+		t.Fatalf("Failed to read %s, %v", feature_path, err)
+	}
+
+	f, err := geojson.UnmarshalFeature(body)
+
+	if err != nil {
+		t.Fatalf("Failed to unmarshal %s, %v", feature_path, err)
 	}
 
 	wr, err := go_writer.NewWriter(ctx, "null://")
@@ -44,7 +56,7 @@ func TestWriteFeature(t *testing.T) {
 	}
 }
 
-func TestWriteFeatureBytes(t *testing.T) {
+func TestWriteBytes(t *testing.T) {
 
 	ctx := context.Background()
 
@@ -65,7 +77,7 @@ func TestWriteFeatureBytes(t *testing.T) {
 
 	defer fh.Close()
 
-	body, err := ioutil.ReadAll(fh)
+	body, err := io.ReadAll(fh)
 
 	if err != nil {
 		t.Fatal(err)
@@ -77,7 +89,7 @@ func TestWriteFeatureBytes(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err = WriteFeatureBytes(ctx, wr, body)
+	err = WriteBytes(ctx, wr, body)
 
 	if err != nil {
 		t.Fatal(err)

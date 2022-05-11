@@ -3,52 +3,62 @@ package writer
 import (
 	"bytes"
 	"context"
-	"errors"
-	"github.com/tidwall/gjson"
+	"fmt"
+	"github.com/paulmach/orb/geojson"
 	"github.com/whosonfirst/go-whosonfirst-export/v2"
-	"github.com/whosonfirst/go-whosonfirst-geojson-v2"
+	"github.com/whosonfirst/go-whosonfirst-feature/properties"
 	"github.com/whosonfirst/go-whosonfirst-uri"
 	go_writer "github.com/whosonfirst/go-writer"
 )
 
-func WriteFeature(ctx context.Context, wr go_writer.Writer, f geojson.Feature) error {
-	return WriteFeatureBytes(ctx, wr, f.Bytes())
+func WriteFeature(ctx context.Context, wr go_writer.Writer, f *geojson.Feature) error {
+
+	body, err := f.MarshalJSON()
+
+	if err != nil {
+		return fmt.Errorf("Failed to marshal JSON, %w", err)
+	}
+
+	return WriteBytes(ctx, wr, body)
 }
 
-func WriteFeatureBytes(ctx context.Context, wr go_writer.Writer, body []byte) error {
+func WriteBytes(ctx context.Context, wr go_writer.Writer, body []byte) error {
 
 	ex, err := export.NewExporter(ctx, "whosonfirst://")
 
 	if err != nil {
-		return err
+		return fmt.Errorf("Failed to create new exporter, %w", err)
 	}
 
-	ex_body, err := ex.Export(ctx, body)
+	return WriteBytesWithExporter(ctx, wr, ex, body)
+}
+
+func WriteBytesWithExporter(ctx context.Context, wr go_writer.Writer, ex export.Exporter, body []byte) error {
+
+	body, err := ex.Export(ctx, body)
 
 	if err != nil {
-		return err
+		return fmt.Errorf("Failed to export data, %w", err)
 	}
 
-	id_rsp := gjson.GetBytes(ex_body, "properties.wof:id")
+	id, err := properties.Id(body)
 
-	if !id_rsp.Exists() {
-		return errors.New("Missing 'properties.wof:id' property")
+	if err != nil {
+		return fmt.Errorf("Failed to derive ID, %w", err)
 	}
-
-	id := id_rsp.Int()
 
 	rel_path, err := uri.Id2RelPath(id)
 
 	if err != nil {
-		return err
+		return fmt.Errorf("Failed to derive relative path, %w", err)
 	}
 
-	br := bytes.NewReader(ex_body)
+	br := bytes.NewReader(body)
 
 	_, err = wr.Write(ctx, rel_path, br)
 
 	if err != nil {
-		return err
+		return fmt.Errorf("Failed to write %s, %w", rel_path, err)
 	}
 
 	return nil
