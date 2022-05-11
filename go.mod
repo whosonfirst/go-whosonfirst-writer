@@ -7,5 +7,5 @@ require (
 	github.com/whosonfirst/go-whosonfirst-export/v2 v2.4.1
 	github.com/whosonfirst/go-whosonfirst-feature v0.0.23
 	github.com/whosonfirst/go-whosonfirst-uri v1.1.0
-	github.com/whosonfirst/go-writer v0.8.0
+	github.com/whosonfirst/go-writer v1.0.0
 )
