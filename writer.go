@@ -11,6 +11,7 @@ import (
 	go_writer "github.com/whosonfirst/go-writer"
 )
 
+// WriteFeature will serialize and write 'f' using 'wr' using a default `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
 func WriteFeature(ctx context.Context, wr go_writer.Writer, f *geojson.Feature) error {
 
 	body, err := f.MarshalJSON()
@@ -22,6 +23,19 @@ func WriteFeature(ctx context.Context, wr go_writer.Writer, f *geojson.Feature) 
 	return WriteBytes(ctx, wr, body)
 }
 
+// WriteFeatureWithExporter will serialize and write 'f' using 'wr' using a custom `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
+func WriteFeatureWithExporter(ctx context.Context, wr go_writer.Writer, ex export.Exporter, f *geojson.Feature) error {
+
+	body, err := f.MarshalJSON()
+
+	if err != nil {
+		return fmt.Errorf("Failed to marshal JSON, %w", err)
+	}
+
+	return WriteBytesWithExporter(ctx, wr, ex, body)
+}
+
+// WriteBytes will write 'body' using 'wr' using a default `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
 func WriteBytes(ctx context.Context, wr go_writer.Writer, body []byte) error {
 
 	ex, err := export.NewExporter(ctx, "whosonfirst://")
@@ -33,6 +47,7 @@ func WriteBytes(ctx context.Context, wr go_writer.Writer, body []byte) error {
 	return WriteBytesWithExporter(ctx, wr, ex, body)
 }
 
+// WriteBytesWithExporter will write 'body' using 'wr' using a custom `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
 func WriteBytesWithExporter(ctx context.Context, wr go_writer.Writer, ex export.Exporter, body []byte) error {
 
 	body, err := ex.Export(ctx, body)
