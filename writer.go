@@ -12,60 +12,60 @@ import (
 )
 
 // WriteFeature will serialize and write 'f' using 'wr' using a default `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
-func WriteFeature(ctx context.Context, wr go_writer.Writer, f *geojson.Feature) error {
+func WriteFeature(ctx context.Context, wr go_writer.Writer, f *geojson.Feature) (int64, error) {
 
 	body, err := f.MarshalJSON()
 
 	if err != nil {
-		return fmt.Errorf("Failed to marshal JSON, %w", err)
+		return -1, fmt.Errorf("Failed to marshal JSON, %w", err)
 	}
 
 	return WriteBytes(ctx, wr, body)
 }
 
 // WriteFeatureWithExporter will serialize and write 'f' using 'wr' using a custom `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
-func WriteFeatureWithExporter(ctx context.Context, wr go_writer.Writer, ex export.Exporter, f *geojson.Feature) error {
+func WriteFeatureWithExporter(ctx context.Context, wr go_writer.Writer, ex export.Exporter, f *geojson.Feature) (int64, error) {
 
 	body, err := f.MarshalJSON()
 
 	if err != nil {
-		return fmt.Errorf("Failed to marshal JSON, %w", err)
+		return -1, fmt.Errorf("Failed to marshal JSON, %w", err)
 	}
 
 	return WriteBytesWithExporter(ctx, wr, ex, body)
 }
 
 // WriteBytes will write 'body' using 'wr' using a default `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
-func WriteBytes(ctx context.Context, wr go_writer.Writer, body []byte) error {
+func WriteBytes(ctx context.Context, wr go_writer.Writer, body []byte) (int64, error) {
 
 	ex, err := export.NewExporter(ctx, "whosonfirst://")
 
 	if err != nil {
-		return fmt.Errorf("Failed to create new exporter, %w", err)
+		return -1, fmt.Errorf("Failed to create new exporter, %w", err)
 	}
 
 	return WriteBytesWithExporter(ctx, wr, ex, body)
 }
 
 // WriteBytesWithExporter will write 'body' using 'wr' using a custom `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
-func WriteBytesWithExporter(ctx context.Context, wr go_writer.Writer, ex export.Exporter, body []byte) error {
+func WriteBytesWithExporter(ctx context.Context, wr go_writer.Writer, ex export.Exporter, body []byte) (int64, error) {
 
 	body, err := ex.Export(ctx, body)
 
 	if err != nil {
-		return fmt.Errorf("Failed to export data, %w", err)
+		return -1, fmt.Errorf("Failed to export data, %w", err)
 	}
 
 	id, err := properties.Id(body)
 
 	if err != nil {
-		return fmt.Errorf("Failed to derive ID, %w", err)
+		return -1, fmt.Errorf("Failed to derive ID, %w", err)
 	}
 
 	rel_path, err := uri.Id2RelPath(id)
 
 	if err != nil {
-		return fmt.Errorf("Failed to derive relative path, %w", err)
+		return -1, fmt.Errorf("Failed to derive relative path, %w", err)
 	}
 
 	br := bytes.NewReader(body)
@@ -73,8 +73,8 @@ func WriteBytesWithExporter(ctx context.Context, wr go_writer.Writer, ex export.
 	_, err = wr.Write(ctx, rel_path, br)
 
 	if err != nil {
-		return fmt.Errorf("Failed to write %s, %w", rel_path, err)
+		return -1, fmt.Errorf("Failed to write %s, %w", rel_path, err)
 	}
 
-	return nil
+	return id, nil
 }
