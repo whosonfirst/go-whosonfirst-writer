@@ -1,18 +1,18 @@
 # github.com/aaronland/go-artisanal-integers v0.1.1
 github.com/aaronland/go-artisanal-integers
-# github.com/aaronland/go-artisanal-integers-proxy v0.2.0
+# github.com/aaronland/go-artisanal-integers-proxy v0.2.5
 github.com/aaronland/go-artisanal-integers-proxy/service
 # github.com/aaronland/go-brooklynintegers-api v1.2.4
 github.com/aaronland/go-brooklynintegers-api
-# github.com/aaronland/go-pool v0.0.0-20191128211702-88306299c758
+# github.com/aaronland/go-pool v1.0.0
 github.com/aaronland/go-pool
-# github.com/aaronland/go-roster v0.0.2
+# github.com/aaronland/go-roster v1.0.0
 github.com/aaronland/go-roster
-# github.com/aaronland/go-string v0.1.1
+# github.com/aaronland/go-string v0.1.2
 github.com/aaronland/go-string/random
-# github.com/aaronland/go-uid v0.0.2
+# github.com/aaronland/go-uid v0.0.3
 github.com/aaronland/go-uid
-# github.com/aaronland/go-uid-artisanal v0.0.0-20191128230022-67bc446aa49d
+# github.com/aaronland/go-uid-artisanal v0.0.1
 github.com/aaronland/go-uid-artisanal
 # github.com/andres-erbsen/clock v0.0.0-20160526145045-9e14626cd129
 github.com/andres-erbsen/clock
@@ -22,13 +22,13 @@ github.com/cenkalti/backoff/v4
 github.com/g8rswimmer/error-chain
 # github.com/natefinch/atomic v1.0.1
 github.com/natefinch/atomic
-# github.com/paulmach/orb v0.6.0
+# github.com/paulmach/orb v0.7.0
 ## explicit
 github.com/paulmach/orb
 github.com/paulmach/orb/geojson
 github.com/paulmach/orb/internal/length
 github.com/paulmach/orb/planar
-# github.com/sfomuseum/go-edtf v0.3.1
+# github.com/sfomuseum/go-edtf v1.0.0
 github.com/sfomuseum/go-edtf
 github.com/sfomuseum/go-edtf/calendar
 github.com/sfomuseum/go-edtf/common
@@ -46,7 +46,7 @@ github.com/tidwall/match
 github.com/tidwall/pretty
 # github.com/tidwall/sjson v1.2.4
 github.com/tidwall/sjson
-# github.com/whosonfirst/go-whosonfirst-export/v2 v2.4.1
+# github.com/whosonfirst/go-whosonfirst-export/v2 v2.4.5
 ## explicit
 github.com/whosonfirst/go-whosonfirst-export/v2
 github.com/whosonfirst/go-whosonfirst-export/v2/properties
@@ -58,17 +58,17 @@ github.com/whosonfirst/go-whosonfirst-flags
 github.com/whosonfirst/go-whosonfirst-flags/existential
 # github.com/whosonfirst/go-whosonfirst-format v0.3.7
 github.com/whosonfirst/go-whosonfirst-format
-# github.com/whosonfirst/go-whosonfirst-id v0.0.3
+# github.com/whosonfirst/go-whosonfirst-id v0.0.4
 github.com/whosonfirst/go-whosonfirst-id
 # github.com/whosonfirst/go-whosonfirst-log v0.1.0
 github.com/whosonfirst/go-whosonfirst-log
 # github.com/whosonfirst/go-whosonfirst-sources v0.1.0
 github.com/whosonfirst/go-whosonfirst-sources
 github.com/whosonfirst/go-whosonfirst-sources/sources
-# github.com/whosonfirst/go-whosonfirst-uri v1.1.0
+# github.com/whosonfirst/go-whosonfirst-uri v1.2.0
 ## explicit
 github.com/whosonfirst/go-whosonfirst-uri
-# github.com/whosonfirst/go-writer v1.0.0
+# github.com/whosonfirst/go-writer v1.0.1
 ## explicit
 github.com/whosonfirst/go-writer
 # go.uber.org/ratelimit v0.2.0
