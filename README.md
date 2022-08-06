@@ -29,13 +29,10 @@ func main() {
 	ctx := context.Background()
 	wr, _ := writer.NewWriter(ctx, "stdout://")
 	
-	for _, feature_path := range flag.Args() {
-	
+	for _, feature_path := range flag.Args() {	
 		r, _ := os.Open(feature_path)
 		body, _ := io.ReadAll(r)		    
-		f, _ := geojson.UnmarshalFeature(body)
-
-		wof_writer.WriteFeature(ctx, wr, f)
+		wof_writer.WriteBytes(ctx, wr, body)
 	}
 ```
 
