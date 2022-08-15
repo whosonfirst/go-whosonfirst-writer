@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/paulmach/orb/geojson"
-	go_writer "github.com/whosonfirst/go-writer"
+	go_writer "github.com/whosonfirst/go-writer/v2"
 	"io"
 	"os"
 	"path/filepath"
