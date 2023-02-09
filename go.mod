@@ -6,7 +6,7 @@ require (
 	github.com/paulmach/orb v0.8.0
 	github.com/whosonfirst/go-whosonfirst-export/v2 v2.7.0
 	github.com/whosonfirst/go-whosonfirst-feature v0.0.26
-	github.com/whosonfirst/go-whosonfirst-uri v1.2.0
+	github.com/whosonfirst/go-whosonfirst-uri v1.3.0
 	github.com/whosonfirst/go-writer/v3 v3.1.0
 )
 
