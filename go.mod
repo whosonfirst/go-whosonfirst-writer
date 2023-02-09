@@ -3,11 +3,11 @@ module github.com/whosonfirst/go-whosonfirst-writer/v3
 go 1.18
 
 require (
-	github.com/paulmach/orb v0.7.1
-	github.com/whosonfirst/go-whosonfirst-export/v2 v2.5.0
-	github.com/whosonfirst/go-whosonfirst-feature v0.0.24
+	github.com/paulmach/orb v0.8.0
+	github.com/whosonfirst/go-whosonfirst-export/v2 v2.7.0
+	github.com/whosonfirst/go-whosonfirst-feature v0.0.26
 	github.com/whosonfirst/go-whosonfirst-uri v1.2.0
-	github.com/whosonfirst/go-writer/v3 v3.0.0
+	github.com/whosonfirst/go-writer/v3 v3.1.0
 )
 
 require (
@@ -25,13 +25,13 @@ require (
 	github.com/g8rswimmer/error-chain v1.0.0 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/sfomuseum/go-edtf v1.1.1 // indirect
-	github.com/tidwall/gjson v1.14.2 // indirect
+	github.com/tidwall/gjson v1.14.4 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/tidwall/sjson v1.2.5 // indirect
 	github.com/whosonfirst/go-whosonfirst-flags v0.4.4 // indirect
 	github.com/whosonfirst/go-whosonfirst-format v0.4.1 // indirect
-	github.com/whosonfirst/go-whosonfirst-id v1.0.0 // indirect
+	github.com/whosonfirst/go-whosonfirst-id v1.2.0 // indirect
 	github.com/whosonfirst/go-whosonfirst-sources v0.1.0 // indirect
 	go.uber.org/ratelimit v0.2.0 // indirect
 )
