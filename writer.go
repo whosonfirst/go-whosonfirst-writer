@@ -52,7 +52,7 @@ func WriteBytes(ctx context.Context, wr go_writer.Writer, body []byte) (int64, e
 // WriteBytesWithExporter will write 'body' using 'wr' using a custom `whosonfirst/go-whosonfirst-export/v2.Exporter` instance.
 func WriteBytesWithExporter(ctx context.Context, wr go_writer.Writer, ex export.Exporter, body []byte) (int64, error) {
 
-	body, err := ex.Export(ctx, body)
+	_, body, err := ex.Export(ctx, body)
 
 	if err != nil {
 		return -1, fmt.Errorf("Failed to export data, %w", err)
