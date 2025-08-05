@@ -3,12 +3,13 @@ package writer
 import (
 	"context"
 	"fmt"
-	"github.com/paulmach/orb/geojson"
-	go_writer "github.com/whosonfirst/go-writer/v3"
 	"io"
 	"os"
 	"path/filepath"
 	"testing"
+
+	"github.com/paulmach/orb/geojson"
+	go_writer "github.com/whosonfirst/go-writer/v3"	
 )
 
 func TestWriteFeature(t *testing.T) {
